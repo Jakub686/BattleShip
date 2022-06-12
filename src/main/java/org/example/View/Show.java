@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.View;
 
 public class Show {
     public void showGrid(String[][] grid) {

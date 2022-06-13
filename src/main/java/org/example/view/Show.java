@@ -1,7 +1,7 @@
 package org.example.view;
 
 public class Show {
-    public void showGrid(String[][] grid) {
+    public static void showGrid(String[][] grid) {
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
                 System.out.print(grid[i][j] + " ");
@@ -11,7 +11,7 @@ public class Show {
         System.out.println();
     }
 
-    public void showGridFog(String[][] grid) {
+    public static void showGridFog(String[][] grid) {
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
                 if (grid[i][j] == "~" | grid[i][j] == "O") {

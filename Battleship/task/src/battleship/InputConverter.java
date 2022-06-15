@@ -1,6 +1,7 @@
 package battleship;
 
-public class InputConventer {
+// Converts input, example A3 into [1][3]. There are many types of input length, examples: A10, A6D6, A10A7, A10D10
+public class InputConverter {
     public static int[] inputConverter(String inputString) {
         int[] coordinatesInt = new int[6];
         inputString = inputString.replace(" ", "");

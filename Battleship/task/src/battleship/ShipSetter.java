@@ -8,12 +8,14 @@ public class ShipSetter {
         do {
             boolean endCondition;
             new Show().showGrid(grid);
+
+            //ship Five
             do {
                 int state = 0;
                 endCondition = true;
                 System.out.println("Enter the coordinates of the Aircraft Carrier (5 cells)");
                 String inputString = sc.nextLine();
-                int[] coordinates = new InputConventer().inputConverter(inputString);
+                int[] coordinates = new InputConverter().inputConverter(inputString);
                 int row1 = coordinates[0];
                 int row2 = coordinates[2];
                 int column1 = coordinates[1];
@@ -27,7 +29,7 @@ public class ShipSetter {
                     endCondition = false;
                     state = 1;
                     new Show().showGrid(grid);
-                    //
+
                     shipFive[0] = coordinates[0];
                     shipFive[1] = coordinates[1];
                     shipFive[2] = coordinates[0];
@@ -60,7 +62,7 @@ public class ShipSetter {
                     shipFive[9] = coordinates[3];
                 }
                 if (state == 0) {
-                    int temp = 0;//
+                    int temp = 0;
                     if (row1 == row2 & column2 == column1 + 1 |
                             row1 == row2 & column2 == column1 + 2 |
                             row1 == row2 & column2 == column1 + 3 |
@@ -71,7 +73,7 @@ public class ShipSetter {
                             column1 == column2 & row2 == row1 + 5) {
                         System.out.println("Error! Wrong length of the Aircraft Carrier! Try again:");
                         endCondition = true;
-                        temp = 1;//
+                        temp = 1;
                     }
                     if (!(row1 == row2 & column2 == column1 + 4 & column1 == column2 & row2 == row1 + 4) & temp == 0) {
                         System.out.println("Error! Wrong ship location! Try again:");
@@ -79,12 +81,14 @@ public class ShipSetter {
                     }
                 }
             } while (endCondition);
+
+            //ship Four
             do {
                 int state = 0;
                 endCondition = true;
                 System.out.println("Enter the coordinates of the Battleship (4 cells):");
                 String inputString = sc.nextLine();
-                int[] coordinates = new InputConventer().inputConverter(inputString);
+                int[] coordinates = new InputConverter().inputConverter(inputString);
                 int row1 = coordinates[0];
                 int row2 = coordinates[2];
                 int column1 = coordinates[1];
@@ -165,12 +169,14 @@ public class ShipSetter {
                     }
                 }
             } while (endCondition);
+
+            //ship Three
             do {
                 int state = 0;
                 endCondition = true;
                 System.out.println("Enter the coordinates of the Submarine  (3 cells):");
                 String inputString = sc.nextLine();
-                int[] coordinates = new InputConventer().inputConverter(inputString);
+                int[] coordinates = new InputConverter().inputConverter(inputString);
                 int row1 = coordinates[0];
                 int row2 = coordinates[2];
                 int column1 = coordinates[1];
@@ -244,12 +250,14 @@ public class ShipSetter {
                     }
                 }
             } while (endCondition);
+
+            //ship Three 2
             do {
                 int state = 0;
                 endCondition = true;
                 System.out.println("Enter the coordinates of the Cruiser   (3 cells):");
                 String inputString = sc.nextLine();
-                int[] coordinates = new InputConventer().inputConverter(inputString);
+                int[] coordinates = new InputConverter().inputConverter(inputString);
                 int row1 = coordinates[0];
                 int row2 = coordinates[2];
                 int column1 = coordinates[1];
@@ -323,12 +331,14 @@ public class ShipSetter {
                     }
                 }
             } while (endCondition);
+
+            //ship Two
             do {
                 int state = 0;
                 endCondition = true;
                 System.out.println("Enter the coordinates of the Destroyer (2 cells):");
                 String inputString = sc.nextLine();
-                int[] coordinates = new InputConventer().inputConverter(inputString);
+                int[] coordinates = new InputConverter().inputConverter(inputString);
                 int row1 = coordinates[0];
                 int row2 = coordinates[2];
                 int column1 = coordinates[1];

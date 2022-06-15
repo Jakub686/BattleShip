@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.view.Grid;
+import org.example.view.GridFog;
 
 public class Main
 {
@@ -8,7 +9,7 @@ public class Main
     {
         String[][] grid1 = new org.example.model.Grid().getGrid(16, 16);
         String[][] grid2 = new org.example.model.Grid().getGrid(16, 16);
-        Grid.showGrid(grid1);
-        Grid.showGridFog(grid2);
+        new Grid().show(grid1);
+        new GridFog().show(grid2);
     }
 }

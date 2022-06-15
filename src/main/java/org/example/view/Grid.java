@@ -1,7 +1,7 @@
 package org.example.view;
 
-public class Grid {
-    public static void showGrid(String[][] grid) {
+public class Grid implements IGrid  {
+     public  void show(String[][] grid) {
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
                 System.out.print(grid[i][j] + " ");

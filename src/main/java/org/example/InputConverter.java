@@ -3,7 +3,7 @@ package org.example;
 // Converts input, example A3 into [1][3]. There are many types of input length, examples: A10, A6D6, A10A7, A10D10
 public class InputConverter {
     public static int[] inputConverter(String inputString) {
-        int[] coordinatesInt = new int[6];
+        int[] coordinatesInt = new int[4];
         inputString = inputString.replace(" ", "");
 
         //A6D6

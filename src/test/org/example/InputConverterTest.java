@@ -8,9 +8,10 @@ public class InputConverterTest {
 
     @Test
     public void testInputConverter() {
+        //input in String result in array grid coordinates X,Y
 
         String input ="A6";
-        int[] coordinates = {1,6,0,0,0,0};
+        int[] coordinates = {1,6,0,0}; //expected
         assertArrayEquals(coordinates, InputConverter.inputConverter(input));
 
         input ="C10";

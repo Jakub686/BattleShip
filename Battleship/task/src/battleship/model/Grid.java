@@ -1,4 +1,4 @@
-package battleship;
+package battleship.model;
 
 public class Grid {
     public String[][] getGrid(int row, int column) {

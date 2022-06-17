@@ -1,5 +1,8 @@
 package battleship;
 
+import view.Grid;
+import view.GridFog;
+
 import java.util.Scanner;
 
 public class Shot {
@@ -9,9 +12,11 @@ public class Shot {
             Scanner s = new Scanner(System.in);
 
             //Playe 1, shot at playere 2
-            new Show().showGridFog(grid2);
+            //new Show().showGridFog(grid2);
+            new GridFog().show(grid2);
             System.out.println("---------------------");
-            new Show().showGrid(grid1);
+            //new Show().showGrid(grid1);
+            new Grid().show(grid1);
             System.out.println("Player 1, it's your turn:");
             String inputString = s.nextLine();
             int[] coordinates = new InputConverter().inputConverter(inputString);
@@ -95,9 +100,11 @@ public class Shot {
 
             if (grid2[row][column] == "~" & row < 11 & row > 0 & column < 11 & column > 0) {
                 grid2[row][column] = "M";
-                new Show().showGridFog(grid2);
+                //new Show().showGridFog(grid2);
+                new GridFog().show(grid2);
                 System.out.println("---------------------");
-                new Show().showGrid(grid1);
+                //new Show().showGrid(grid1);
+                new Grid().show(grid1);
                 System.out.println("You missed.");
             }
 
@@ -115,9 +122,11 @@ public class Shot {
             System.out.println("Press Enter and pass the move to another player");
             String blankEnter = s.nextLine();
 
-            new Show().showGridFog(grid1);
+            //new Show().showGridFog(grid1);
+            new GridFog().show(grid1);
             System.out.println("---------------------");
-            new Show().showGrid(grid2);
+            //new Show().showGrid(grid2);
+            new Grid().show(grid2);
             System.out.println("Player 2, it's your turn:");
             inputString = s.nextLine();
             coordinates = new InputConverter().inputConverter(inputString);
@@ -199,9 +208,11 @@ public class Shot {
 
             if (grid1[row][column] == "~" & row < 11 & row > 0 & column < 11 & column > 0) {
                 grid1[row][column] = "M";
-                new Show().showGridFog(grid1);
+                //new Show().showGridFog(grid1);
+                new GridFog().show(grid1);
                 System.out.println("---------------------");
-                new Show().showGrid(grid2);
+                //new Show().showGrid(grid2);
+                new Grid().show(grid2);
                 System.out.println("You missed.");
             }
 

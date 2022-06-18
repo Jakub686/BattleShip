@@ -6,6 +6,76 @@ public class InputConverter {
         int[] coordinatesInt = new int[4];
         inputString = inputString.replace(" ", "");
 
+        //sorting input order ex. A10A7 -> A7A10
+        inputString = sortInputOrder(inputString);
+
+        //converting input String into int[] coordinates
+        return converter(inputString, coordinatesInt);
+    }
+
+    private static int[] converter(String inputString, int[] coordinatesInt) {
+        //A6D9
+        char d = 49;
+        char l = 65;
+        if (inputString.length() == 4) {
+            for (int i = 1; i <= 10; i++, l++) {
+                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
+                if (inputString.charAt(2) == l) coordinatesInt[2] = i;
+            }
+
+            for (int i = 1; i <= 9; i++, d++) {
+                if (inputString.charAt(1) == d) coordinatesInt[1] = i;
+                if (inputString.charAt(3) == d) coordinatesInt[3] = i;
+            }
+        }
+
+        //A6D10
+        if (inputString.length() == 5) {
+            for (int i = 1; i <= 10; i++, l++) {
+                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
+                if (inputString.charAt(2) == l) coordinatesInt[2] = i;
+            }
+            for (int i = 1; i <= 9; i++, d++) {
+                if (inputString.charAt(1) == d) coordinatesInt[1] = i;
+                if (inputString.charAt(3) == d) coordinatesInt[3] = i;
+            }
+            if (inputString.charAt(3) == '1' & inputString.charAt(4) == '0') coordinatesInt[3] = 10;
+        }
+
+        //A10D10
+        if (inputString.length() == 6) {
+            for (int i = 1; i <= 10; i++, l++) {
+                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
+                if (inputString.charAt(3) == l) coordinatesInt[2] = i;
+            }
+            if (inputString.charAt(1) == '1' & inputString.charAt(2) == '0') coordinatesInt[1] = 10;
+            if (inputString.charAt(4) == '1' & inputString.charAt(5) == '0') coordinatesInt[3] = 10;
+        }
+
+        //A10
+        if (inputString.length() == 3) {
+
+            for (int i = 1; i <= 16; i++, l++) {
+                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
+                if (inputString.charAt(1) == d) coordinatesInt[1] = i;
+            }
+            if (inputString.charAt(1) == '1' & inputString.charAt(2) == '0') coordinatesInt[1] = 10;
+            if (inputString.charAt(1) == '1' & inputString.charAt(2) == '1') coordinatesInt[1] = 11;
+        }
+
+        //A6
+        if (inputString.length() == 2) {
+            for (int i = 1; i <= 16; i++, l++) {
+                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
+            }
+            for (int i = 1; i <= 9; i++, d++) {
+                if (inputString.charAt(1) == d) coordinatesInt[1] = i;
+            }
+        }
+        return coordinatesInt;
+    }
+
+    private static String sortInputOrder(String inputString) {
         //A6D6
         String oldString = inputString;
         String newString = "";
@@ -51,60 +121,6 @@ public class InputConverter {
                 }
             }
         }
-        //A6D9
-        char d = 49;
-        char l = 65;
-        if (inputString.length() == 4) {
-            for (int i = 1; i <= 10; i++, l++) {
-                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
-                if (inputString.charAt(2) == l) coordinatesInt[2] = i;
-            }
-
-            for (int i = 1; i <= 9; i++, d++) {
-                if (inputString.charAt(1) == d) coordinatesInt[1] = i;
-                if (inputString.charAt(3) == d) coordinatesInt[3] = i;
-            }
-        }
-        //A6D10
-        if (inputString.length() == 5) {
-            for (int i = 1; i <= 10; i++, l++) {
-                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
-                if (inputString.charAt(2) == l) coordinatesInt[2] = i;
-            }
-            for (int i = 1; i <= 9; i++, d++) {
-                if (inputString.charAt(1) == d) coordinatesInt[1] = i;
-                if (inputString.charAt(3) == d) coordinatesInt[3] = i;
-            }
-            if (inputString.charAt(3) == '1' & inputString.charAt(4) == '0') coordinatesInt[3] = 10;
-        }
-        //A10D10
-        if (inputString.length() == 6) {
-            for (int i = 1; i <= 10; i++, l++) {
-                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
-                if (inputString.charAt(3) == l) coordinatesInt[2] = i;
-            }
-            if (inputString.charAt(1) == '1' & inputString.charAt(2) == '0') coordinatesInt[1] = 10;
-            if (inputString.charAt(4) == '1' & inputString.charAt(5) == '0') coordinatesInt[3] = 10;
-        }
-        //A10
-        if (inputString.length() == 3) {
-
-            for (int i = 1; i <= 16; i++, l++) {
-                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
-                if (inputString.charAt(1) == d) coordinatesInt[1] = i;
-            }
-            if (inputString.charAt(1) == '1' & inputString.charAt(2) == '0') coordinatesInt[1] = 10;
-            if (inputString.charAt(1) == '1' & inputString.charAt(2) == '1') coordinatesInt[1] = 11;
-        }
-        //A6
-        if (inputString.length() == 2) {
-            for (int i = 1; i <= 16; i++, l++) {
-                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
-            }
-            for (int i = 1; i <= 9; i++, d++) {
-                if (inputString.charAt(1) == d) coordinatesInt[1] = i;
-            }
-        }
-        return coordinatesInt;
+        return inputString;
     }
 }

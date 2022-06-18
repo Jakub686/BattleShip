@@ -14,9 +14,8 @@ public class Main
         String[][] grid2 = new org.example.model.Grid().getGrid(16, 16);
 
         //TODO musze stworzyc nowy obiekty, bo Grid i GridFog implementuja IGrid, a w interfacie metoda statyczna musi miec cialo, a chyba zalezalo nam na tym aby nie miala ciala
-        new Grid().show(grid1);
-        new GridFog().show(grid2);
-
+//        new Grid().show(grid1);
+//        new GridFog().show(grid2);
 
         System.out.println("Player 1, place your ships on the game field");
         new ShipSetter().shipSetup(grid1, Ships.ship1Five, Ships.ship1Four, Ships.ship1Three1, Ships.ship1Three2, Ships.ship1Two);

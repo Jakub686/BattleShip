@@ -77,7 +77,7 @@ public class ShipSetter {
     private static void shipThree2Set(String[][] grid, int[] shipThree2, Scanner sc) {
         boolean endCondition;
         do {
-            int state = 0; // if state == 0 show error, after successfully set a ship, state equals 1
+            int state = 0; // if state == 0 show error, after successfully set a ship i'll be state equals 1
             endCondition = true;
             System.out.println("Enter the coordinates of the Cruiser   (3 cells):");
             String inputString = sc.nextLine();
@@ -127,7 +127,7 @@ public class ShipSetter {
     private static void shipThree1Set(String[][] grid, int[] shipThree1, Scanner sc) {
         boolean endCondition;
         do {
-            int state = 0; // if state == 0 show error, after successfully set a ship, state equals 1
+            int state = 0; // if state == 0 show error, after successfully set a ship i'll be state equals 1
             endCondition = true;
             System.out.println("Enter the coordinates of the Submarine  (3 cells):");
             String inputString = sc.nextLine();
@@ -177,7 +177,7 @@ public class ShipSetter {
     private static void ShipFourSet(String[][] grid, int[] shipFour, Scanner sc) {
         boolean endCondition;
         do {
-            int state = 0; // if state == 0 show error, after successfully set a ship, state equals 1
+            int state = 0; // if state == 0 show error, after successfully set a ship i'll be state equals 1
             endCondition = true;
             System.out.println("Enter the coordinates of the Battleship (4 cells):");
             String inputString = sc.nextLine();
@@ -230,7 +230,7 @@ public class ShipSetter {
     private static void shipFiveSet(String[][] grid, int[] shipFive, Scanner sc) {
         boolean endCondition;
         do {
-            int state = 0; // if state == 0 show error, after successfully set a ship, state equals 1
+            int state = 0; // if state == 0 show error, after successfully set a ship i'll be state equals 1
             endCondition = true;
             System.out.println("Enter the coordinates of the Aircraft Carrier (5 cells)");
             String inputString = sc.nextLine();

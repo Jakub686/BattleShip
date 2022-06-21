@@ -12,10 +12,10 @@ public class Shot {
             Scanner s = new Scanner(System.in);
 
             //Playe 1, shot at playere 2
-            //new Show().showGridFog(grid2);
+
             new GridFog().show(grid2);
             System.out.println("---------------------");
-            //new Show().showGrid(grid1);
+
             new Grid().show(grid1);
             System.out.println("Player 1, it's your turn:");
             String inputString = s.nextLine();
@@ -23,8 +23,8 @@ public class Shot {
             int row = coordinates[0];
             int column = coordinates[1];
 
-            if (grid2[row][column] == "O" & row < 11 & row > 0 & column < 11 & column > 0) {
-                grid2[row][column] = "X";
+            if (grid2[row][column].equals("O") & row < 11 & row > 0 & column < 11 & column > 0) {
+                grid2[row][column].equals("X");
                 boolean msgCondition = true;
 
                 for(int i =0,j=1; i<=8 ; i=i+2,j=j+2){
@@ -33,6 +33,7 @@ public class Shot {
                         Ships.ship2Five[i+1] = 0;
                     }
                 }
+
 
                 if (Ships.ship2Five[10] == 0 & Ships.ship2Five[0] == 0 & Ships.ship2Five[1] == 0 & Ships.ship2Five[2] == 0 & Ships.ship2Five[3] == 0 & Ships.ship2Five[4] == 0 & Ships.ship2Five[5] == 0 & Ships.ship2Five[6] == 0 & Ships.ship2Five[7] == 0 & Ships.ship2Five[8] == 0 & Ships.ship2Five[9] == 0) {
                     System.out.println("You sank a ship! Specify a new target:");
@@ -124,7 +125,7 @@ public class Shot {
 
             new GridFog().show(grid1);
             System.out.println("---------------------");
-
+            ;
             new Grid().show(grid2);
             System.out.println("Player 2, it's your turn:");
             inputString = s.nextLine();
@@ -207,10 +208,10 @@ public class Shot {
 
             if (grid1[row][column] == "~" & row < 11 & row > 0 & column < 11 & column > 0) {
                 grid1[row][column] = "M";
-                //new Show().showGridFog(grid1);
+
                 new GridFog().show(grid1);
                 System.out.println("---------------------");
-                //new Show().showGrid(grid2);
+
                 new Grid().show(grid2);
                 System.out.println("You missed.");
             }

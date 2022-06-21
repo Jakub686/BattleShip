@@ -7,7 +7,7 @@ public class GridFog implements IGrid {
 
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
-                if ("~".equals(grid[i][j]) | grid[i][j].equals("O")) {
+                if ("~".equals(grid[i][j]) | "O".equals(grid[i][j])) {
                     System.out.print("~" + " ");
                 } else {
                     System.out.print(grid[i][j] + " ");

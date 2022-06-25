@@ -6,10 +6,7 @@ public class InputConverter {
         int[] coordinatesInt = new int[4];
         inputString = inputString.replace(" ", "");
 
-        //sorting input order ex. A10A7 -> A7A10
         inputString = sortInputOrder(inputString);
-
-        //converting input String into int[] coordinates
         return converter(inputString, coordinatesInt);
     }
 
@@ -18,51 +15,30 @@ public class InputConverter {
         char d = 49;
         char l = 65;
         if (inputString.length() == 4) {
-            for (int i = 1; i <= 10; i++, l++) {
-                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
-                if (inputString.charAt(2) == l) coordinatesInt[2] = i;
-            }
-
-            for (int i = 1; i <= 9; i++, d++) {
-                if (inputString.charAt(1) == d) coordinatesInt[1] = i;
-                if (inputString.charAt(3) == d) coordinatesInt[3] = i;
-            }
+            l = convertStringIntoIntCoordinates(inputString, coordinatesInt, l, 10, 0, 2, 2);
+            d = convertStringIntoIntCoordinates(inputString, coordinatesInt, d, 9, 1, 3, 3);
         }
-
         //A6D10
         if (inputString.length() == 5) {
-            for (int i = 1; i <= 10; i++, l++) {
-                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
-                if (inputString.charAt(2) == l) coordinatesInt[2] = i;
-            }
-            for (int i = 1; i <= 9; i++, d++) {
-                if (inputString.charAt(1) == d) coordinatesInt[1] = i;
-                if (inputString.charAt(3) == d) coordinatesInt[3] = i;
-            }
-            if (inputString.charAt(3) == '1' & inputString.charAt(4) == '0') coordinatesInt[3] = 10;
+            l = convertStringIntoIntCoordinates(inputString, coordinatesInt, l, 10, 0, 2, 2);
+            d = convertStringIntoIntCoordinates(inputString, coordinatesInt, d, 9, 1, 3, 3);
+            coordinate10(inputString, coordinatesInt, 3, 4, '0', 3, 10);
         }
-
         //A10D10
         if (inputString.length() == 6) {
-            for (int i = 1; i <= 10; i++, l++) {
-                if (inputString.charAt(0) == l) coordinatesInt[0] = i;
-                if (inputString.charAt(3) == l) coordinatesInt[2] = i;
-            }
-            if (inputString.charAt(1) == '1' & inputString.charAt(2) == '0') coordinatesInt[1] = 10;
-            if (inputString.charAt(4) == '1' & inputString.charAt(5) == '0') coordinatesInt[3] = 10;
+            l = convertStringIntoIntCoordinates(inputString, coordinatesInt, l, 10, 0, 3, 2);
+            coordinate10(inputString, coordinatesInt, 1, 2, '0', 1, 10);
+            coordinate10(inputString, coordinatesInt, 4, 5, '0', 3, 10);
         }
-
         //A10
         if (inputString.length() == 3) {
-
             for (int i = 1; i <= 16; i++, l++) {
                 if (inputString.charAt(0) == l) coordinatesInt[0] = i;
                 if (inputString.charAt(1) == d) coordinatesInt[1] = i;
             }
-            if (inputString.charAt(1) == '1' & inputString.charAt(2) == '0') coordinatesInt[1] = 10;
-            if (inputString.charAt(1) == '1' & inputString.charAt(2) == '1') coordinatesInt[1] = 11;
+            coordinate10(inputString, coordinatesInt, 1, 2, '0', 1, 10);
+            coordinate10(inputString, coordinatesInt, 1, 2, '1', 1, 11);
         }
-
         //A6
         if (inputString.length() == 2) {
             for (int i = 1; i <= 16; i++, l++) {
@@ -73,6 +49,18 @@ public class InputConverter {
             }
         }
         return coordinatesInt;
+    }
+
+    private static void coordinate10(String inputString, int[] coordinatesInt, int i2, int i3, char c, int i4, int i5) {
+        if (inputString.charAt(i2) == '1' & inputString.charAt(i3) == c) coordinatesInt[i4] = i5;
+    }
+
+    private static char convertStringIntoIntCoordinates(String inputString, int[] coordinatesInt, char l, int i2, int i3, int i4, int i5) {
+        for (int i = 1; i <= i2; i++, l++) {
+            if (inputString.charAt(i3) == l) coordinatesInt[i3] = i;
+            if (inputString.charAt(i4) == l) coordinatesInt[i5] = i;
+        }
+        return l;
     }
 
     private static String sortInputOrder(String inputString) {

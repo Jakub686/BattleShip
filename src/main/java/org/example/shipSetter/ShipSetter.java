@@ -68,7 +68,6 @@ public class ShipSetter {
     }
 
 
-
     private static void shipThree2Set(String[][] grid, int[] shipThree2, Scanner sc) {
         boolean endCondition;
         do {
@@ -407,6 +406,5 @@ public class ShipSetter {
         }
         return endCondition;
     }
-
 
 }

@@ -16,8 +16,7 @@ public class ShipSetter {
                 int state = 0;
                 endCondition = true;
                 System.out.println("Enter the coordinates of the Aircraft Carrier (5 cells)");
-                String inputString = sc.nextLine();
-                int[] coordinates = new ConvertsUserInputIntoCartesianCoordinates().inputConverter(inputString);
+                int[] coordinates = new ConverterUserInputIntoCartesianCoordinates().inputConverterForShipSetting();
                 int row1 = coordinates[0];
                 int row2 = coordinates[2];
                 int column1 = coordinates[1];
@@ -89,8 +88,8 @@ public class ShipSetter {
                 int state = 0;
                 endCondition = true;
                 System.out.println("Enter the coordinates of the Battleship (4 cells):");
-                String inputString = sc.nextLine();
-                int[] coordinates = new ConvertsUserInputIntoCartesianCoordinates().inputConverter(inputString);
+                //String inputString = sc.nextLine();
+                int[] coordinates = new ConverterUserInputIntoCartesianCoordinates().inputConverterForShipSetting();
                 int row1 = coordinates[0];
                 int row2 = coordinates[2];
                 int column1 = coordinates[1];
@@ -177,8 +176,8 @@ public class ShipSetter {
                 int state = 0;
                 endCondition = true;
                 System.out.println("Enter the coordinates of the Submarine  (3 cells):");
-                String inputString = sc.nextLine();
-                int[] coordinates = new ConvertsUserInputIntoCartesianCoordinates().inputConverter(inputString);
+                //String inputString = sc.nextLine();
+                int[] coordinates = new ConverterUserInputIntoCartesianCoordinates().inputConverterForShipSetting();
                 int row1 = coordinates[0];
                 int row2 = coordinates[2];
                 int column1 = coordinates[1];
@@ -258,8 +257,8 @@ public class ShipSetter {
                 int state = 0;
                 endCondition = true;
                 System.out.println("Enter the coordinates of the Cruiser   (3 cells):");
-                String inputString = sc.nextLine();
-                int[] coordinates = new ConvertsUserInputIntoCartesianCoordinates().inputConverter(inputString);
+                //String inputString = sc.nextLine();
+                int[] coordinates = new ConverterUserInputIntoCartesianCoordinates().inputConverterForShipSetting();
                 int row1 = coordinates[0];
                 int row2 = coordinates[2];
                 int column1 = coordinates[1];
@@ -339,8 +338,8 @@ public class ShipSetter {
                 int state = 0;
                 endCondition = true;
                 System.out.println("Enter the coordinates of the Destroyer (2 cells):");
-                String inputString = sc.nextLine();
-                int[] coordinates = new ConvertsUserInputIntoCartesianCoordinates().inputConverter(inputString);
+                //String inputString = sc.nextLine();
+                int[] coordinates = new ConverterUserInputIntoCartesianCoordinates().inputConverterForShipSetting();
                 int row1 = coordinates[0];
                 int row2 = coordinates[2];
                 int column1 = coordinates[1];

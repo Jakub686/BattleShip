@@ -1,7 +1,13 @@
 package org.example.model;
 
 public class Grid {
+
+   public static int margin = 6; // margin prevents index out of bounds exception
+
     public String[][] getGrid(int row, int column) {
+
+        row = row + margin;
+        column = column + margin;
         String[][] grid = new String[row][column];
         grid[0][0] = " ";
         for (int i = 1; i < column; i++) {
@@ -19,4 +25,6 @@ public class Grid {
         }
         return grid;
     }
+
+
 }

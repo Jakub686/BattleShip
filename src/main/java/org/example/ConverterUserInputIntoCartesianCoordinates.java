@@ -2,6 +2,7 @@ package org.example;
 
 import jdk.swing.interop.SwingInterOpUtils;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -15,16 +16,16 @@ public class ConverterUserInputIntoCartesianCoordinates {
         int[] coordinatesInt = new int[4];
 
         System.out.println("First row ");
-        inputString[0] = scanner.nextLine();
+        inputString[0] = scanner.nextLine().toUpperCase(Locale.ROOT);
 
         System.out.println("First column ");
-        inputString[1] = scanner.nextLine();
+        inputString[1] = scanner.nextLine().toUpperCase(Locale.ROOT);
 
         System.out.println("Second row ");
-        inputString[2] = scanner.nextLine();
+        inputString[2] = scanner.nextLine().toUpperCase(Locale.ROOT);
 
         System.out.println("Second column");
-        inputString[3] = scanner.nextLine();
+        inputString[3] = scanner.nextLine().toUpperCase(Locale.ROOT);
 
         //sort input ex. C5C8 into C5C8, first coordinates always have to be smaller then second
         inputString = sortInput(inputString);

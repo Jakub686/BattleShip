@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class Main {
     //battle field size row x column
-    public static int row = 10;
-    public static int column = 10;
+    public static int rows = 10;
+    public static int columns = 10;
 
     public static void main( String[] args )
     {
@@ -29,8 +29,8 @@ public class Main {
         Ship shipTwoP2 = new Ship(ShipType.DESTROYER);
 
         //Grid
-        String[][] grid1 = new Grid().getGrid(row +1, column +1);
-        String[][] grid2 = new Grid().getGrid(row +1, column +1);
+        String[][] grid1 = new Grid().getGrid(rows +1, columns +1);
+        String[][] grid2 = new Grid().getGrid(rows +1, columns +1);
 
         //Setting ship for player 1
         System.out.println("Player 1, place your ships on the game field");

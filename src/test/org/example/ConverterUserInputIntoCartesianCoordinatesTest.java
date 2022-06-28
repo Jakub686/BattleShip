@@ -10,10 +10,10 @@ public class ConverterUserInputIntoCartesianCoordinatesTest {
     public void testInputConverter() {
         //input in String result in array grid coordinates X,Y
 
-//        String input ="A6";
-//        int[] coordinates = {1,6,0,0}; //expected
-//        assertArrayEquals(coordinates, ConvertsUserInputIntoCartesianCoordinates.inputConverterForShipSetting(input));
-//
+        String[] inputString ={"b","2","b","2"};
+        int[] coordinates = {2,2,2,2}; //expected
+        assertArrayEquals(coordinates, ConverterUserInputIntoCartesianCoordinates.inputConverterForShipSetting(inputString));
+
 //        input ="C10";
 //        coordinates[0]=3;
 //        coordinates[1]=10;
@@ -53,7 +53,6 @@ public class ConverterUserInputIntoCartesianCoordinatesTest {
 //        coordinates[2]=4;
 //        coordinates[3]=10;
 //        assertArrayEquals(coordinates, ConvertsUserInputIntoCartesianCoordinates.inputConverterForShipSetting(input));
-
     }
 }
 

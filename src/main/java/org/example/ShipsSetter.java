@@ -4,11 +4,11 @@ import jdk.swing.interop.SwingInterOpUtils;
 import org.example.model.Grid;
 import org.example.view.Show;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ShipsSetter {
     public static void shipsSetter(String[][] grid, Ship shipFive,Ship shipFour,Ship shipThree1,Ship shipThree2,Ship shipTwo) {
-        Scanner sc = new Scanner(System.in);
 
         shipSetup(shipFive, grid);
         shipSetup(shipFour, grid);
@@ -18,16 +18,19 @@ public class ShipsSetter {
     }
 
     private static void shipSetup(Ship ship, String[][] grid){
+
         boolean endCondition;
         do {
             int state = 0;
             endCondition = true;
             System.out.println("Enter the coordinates of the " + ship.getShiptype() + " ("+ship.getShiptype().getLength()+")");
-            int[] coordinates = new ConverterUserInputIntoCartesianCoordinates().inputConverterForShipSetting();
+
+            int[] coordinates = ConverterUserInputIntoCartesianCoordinates.inputConverterForShipSetting(userInput());
             int row1 = coordinates[0];
             int row2 = coordinates[2];
             int column1 = coordinates[1];
             int column2 = coordinates[3];
+
             if (row1 == row2 & column2 == column1 + ship.getShiptype().getLength()-1) {
                 grid[row1][column1] = "O";
                 grid[row2][column2] = "O";
@@ -37,8 +40,8 @@ public class ShipsSetter {
                 endCondition = false;
                 state = 1; // Ship successfully set
                 new Show().showGrid(grid);
-
             }
+
             if (column1 == column2 & row2 == row1 + ship.getShiptype().getLength()-1) {
                 grid[row1][column1] = "O";
                 grid[row2][column2] = "O";
@@ -49,8 +52,8 @@ public class ShipsSetter {
                 state = 1;  // Ship successfully set
                 new Show().showGrid(grid);
                 ship.getShiptype().setCoordinates(new int[] {coordinates[0],coordinates[1],coordinates[0],coordinates[1] + 1,coordinates[0],coordinates[1] + 2,coordinates[0],coordinates[1] + 3,coordinates[0],coordinates[2],coordinates[3]});
-
             }
+
             // if ship not successfully set, then check for errors
             if (state == 0) {
                 int temp = 0;
@@ -69,6 +72,26 @@ public class ShipsSetter {
                 }
             }
         } while (endCondition);
+    }
+
+    private static String[] userInput() {
+        Scanner sc = new Scanner(System.in);
+
+        String[] inputString = new String[4];
+
+        System.out.println("First row ");
+        inputString[0] = sc.nextLine().toUpperCase(Locale.ROOT);
+
+        System.out.println("First column ");
+        inputString[1] = sc.nextLine().toUpperCase(Locale.ROOT);
+
+        System.out.println("Second row ");
+        inputString[2] = sc.nextLine().toUpperCase(Locale.ROOT);
+
+        System.out.println("Second column");
+        inputString[3] = sc.nextLine().toUpperCase(Locale.ROOT);
+
+        return inputString;
     }
 
 }

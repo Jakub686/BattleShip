@@ -46,7 +46,7 @@ public class ShipsSetter {
                 grid[row1][column1] = "O";
                 grid[row2][column2] = "O";
                 for(int i = 1 ; i <ship.getShiptype().getLength() ; i++)
-                    grid[row1][column1 + i] = "O";
+                    grid[row1 + i][column1] = "O";
 
                 endCondition = false;
                 state = 1;  // Ship successfully set

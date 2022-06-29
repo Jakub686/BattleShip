@@ -9,26 +9,30 @@ import java.util.Scanner;
 public class ConverterUserInputIntoCartesianCoordinates {
     public static int[] inputConverterForShipSetting(String[] inputString) {
 
-        int[] coordinatesInt = new int[4];
+        int[] coordinatesInt;
 
         //sort input ex. C5C8 into C5C8, first coordinates always have to be smaller then second
         inputString = sortInput(inputString);
 
-        converter(inputString, coordinatesInt);
+        coordinatesInt = converter(inputString);
+
         return coordinatesInt;
     }
 
-    private static void converter(String[] inputString, int[] coordinatesInt) {
+    private static int[] converter(String[] inputString) {
         //Converts user String input ex A4 into cartesian coordinates A4 -> X=1 Y=4
 
-        coordinatesInt[0]=inputString[0].charAt(0)-64;
-        coordinatesInt[2]=inputString[0].charAt(0)-64;
+        int[] coordinatesInt = new int[4];;
+        coordinatesInt[0]=inputString[0].charAt(0)-64; //if A will be 1
+        coordinatesInt[2]=inputString[2].charAt(0)-64;
 
         coordinatesInt[1]=Integer.parseInt(inputString[1]);
         coordinatesInt[3]=Integer.parseInt(inputString[3]);
+
+        return coordinatesInt;
     }
 
-    private static String[] sortInput(String[] inputString) {
+    public static String[] sortInput(String[] inputString) {
 
         //D8D4
         int a = Integer.parseInt(inputString[1]);

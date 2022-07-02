@@ -24,6 +24,7 @@ public enum ShipType {
         return coordinates;
     }
 
+
     public static int longestShip = 5;
 
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Converts input, example A3 into [1][3]. There are many types of input length, examples: A10, A6D6, A10A7, A10D10
  */
 public class ConverterUserInputIntoCartesianCoordinates {
-    public static int[] inputConverterForShipSetting(String[] inputString) {
+    public int[] inputConverterForShipSetting(String[] inputString) {
 
         int[] coordinatesInt;
 
@@ -19,7 +19,7 @@ public class ConverterUserInputIntoCartesianCoordinates {
         return coordinatesInt;
     }
 
-    private static int[] converter(String[] inputString) {
+    private int[] converter(String[] inputString) {
         //Converts user String input ex A4 into cartesian coordinates A4 -> X=1 Y=4
 
         int[] coordinatesInt = new int[4];;
@@ -32,7 +32,7 @@ public class ConverterUserInputIntoCartesianCoordinates {
         return coordinatesInt;
     }
 
-    public static String[] sortInput(String[] inputString) {
+    public  String[] sortInput(String[] inputString) {
 
         //D8D4
         int a = Integer.parseInt(inputString[1]);
@@ -49,7 +49,7 @@ public class ConverterUserInputIntoCartesianCoordinates {
         return inputString;
     }
 
-    private static void sorting(String[] inputString, int a, int b) {
+    private void sorting(String[] inputString, int a, int b) {
         if (a > b) {
 
             String[] temp = new String[4];

@@ -48,5 +48,8 @@ public class Main {
 
         System.out.println("Press Enter and pass the move to another player");
         String blankString = sc.nextLine();
+
+
+        new Shot().shot(grid1, grid2);
     }
 }

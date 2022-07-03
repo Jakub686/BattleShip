@@ -68,8 +68,8 @@ public class Shot implements UserInput{
             resetCoordinates(row, column, 5, shipListPlayer2.get(3).getShiptype().getCoordinates());
             msgCondition = shipThreeSunk(msgCondition, shipListPlayer2.get(3).getShiptype().getCoordinates());
 
-            resetCoordinates(row, column, 3, shipListPlayer2.get(2).getShiptype().getCoordinates());
-            msgCondition = shipTwoSunk(msgCondition, shipListPlayer2.get(2).getShiptype().getCoordinates());
+            resetCoordinates(row, column, 3, shipListPlayer2.get(4).getShiptype().getCoordinates());
+            msgCondition = shipTwoSunk(msgCondition, shipListPlayer2.get(4).getShiptype().getCoordinates());
 
             shitHit(msgCondition);
         }
@@ -99,8 +99,8 @@ public class Shot implements UserInput{
             resetCoordinates(row, column, 5, shipListPlayer1.get(3).getShiptype().getCoordinates());
             msgCondition = shipThreeSunk(msgCondition, shipListPlayer1.get(3).getShiptype().getCoordinates());
 
-            resetCoordinates(row, column, 3, shipListPlayer1.get(2).getShiptype().getCoordinates());
-            msgCondition = shipTwoSunk(msgCondition, shipListPlayer1.get(2).getShiptype().getCoordinates());
+            resetCoordinates(row, column, 3, shipListPlayer1.get(4).getShiptype().getCoordinates());
+            msgCondition = shipTwoSunk(msgCondition, shipListPlayer1.get(4).getShiptype().getCoordinates());
 
             shitHit(msgCondition);
         }

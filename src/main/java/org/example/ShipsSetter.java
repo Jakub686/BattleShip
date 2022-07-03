@@ -77,6 +77,7 @@ public class ShipsSetter implements UserInput {
             shipSuccessfullySetHorizontal(ship, setCoordinates);// Ship successfully set;
 
             Show.showGrid(grid);
+
         }
         return endCondition;
     }

@@ -3,6 +3,8 @@ package org.example;
 import org.example.model.Grid;
 import org.example.view.Show;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -15,18 +17,34 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         //Player 1 ships
+        List<Ship> shipListPlayer1 = new ArrayList<>();
+
         Ship shipFiveP1 = new Ship(ShipType.AIRCRAFT_CARRIER);
         Ship shipFourP1 = new Ship(ShipType.BATTLESHIP);
         Ship shipThree1P1 = new Ship(ShipType.SUBMARINE);
         Ship shipThree2P1 = new Ship(ShipType.CRUISER);
         Ship shipTwoP1 = new Ship(ShipType.DESTROYER);
 
+        shipListPlayer1.add(shipFiveP1);
+        shipListPlayer1.add(shipFourP1);
+        shipListPlayer1.add(shipThree1P1);
+        shipListPlayer1.add(shipThree2P1);
+        shipListPlayer1.add(shipTwoP1);
+
         //Player 2 ships
+        List<Ship> shipListPlayer2 = new ArrayList<>();
+
         Ship shipFiveP2 = new Ship(ShipType.AIRCRAFT_CARRIER);
         Ship shipFourP2 = new Ship(ShipType.BATTLESHIP);
         Ship shipThree1P2 = new Ship(ShipType.SUBMARINE);
         Ship shipThree2P2 = new Ship(ShipType.CRUISER);
         Ship shipTwoP2 = new Ship(ShipType.DESTROYER);
+
+        shipListPlayer2.add(shipFiveP2);
+        shipListPlayer2.add(shipFourP2);
+        shipListPlayer2.add(shipThree1P2);
+        shipListPlayer2.add(shipThree2P2);
+        shipListPlayer2.add(shipTwoP2);
 
         //Grid
         String[][] grid1 = new Grid().getGrid(rows +1, columns +1);
@@ -35,7 +53,7 @@ public class Main {
         //Setting ship for player 1
         System.out.println("Player 1, place your ships on the game field");
         Show.showGrid(grid1);
-        new ShipsSetter().shipsSetter(grid1,shipFiveP1,shipFourP1,shipThree1P1,shipThree2P1,shipTwoP1);
+        new ShipsSetter().shipsSetter(grid1,shipListPlayer1);
 
         System.out.println("Press Enter and pass the move to another player");
         String anotherPlayer = sc.nextLine();
@@ -44,12 +62,11 @@ public class Main {
         System.out.println("Player 2, place your ships to the game field");
         Show.showGrid(grid2);
         if (anotherPlayer.equals(""))
-            new ShipsSetter().shipsSetter(grid2,shipFiveP2,shipFourP2,shipThree1P2,shipThree2P2,shipTwoP2);
+            new ShipsSetter().shipsSetter(grid2,shipListPlayer2);
 
         System.out.println("Press Enter and pass the move to another player");
         String blankString = sc.nextLine();
 
-
-        new Shot().shot(grid1, grid2);
+        new Shot().shot(grid1, grid2,shipListPlayer1,shipListPlayer2);
     }
 }

@@ -2,24 +2,27 @@ package org.example;
 
 import org.example.view.Show;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class ShipsSetter implements UserInput {
-    public void shipsSetter(String[][] grid, Ship shipFive, Ship shipFour, Ship shipThree1, Ship shipThree2, Ship shipTwo) {
+    public void shipsSetter(String[][] grid, List<Ship> shipList) {
 
-        shipSetup(shipFive, grid);
-        shipSetup(shipFour, grid);
-        shipSetup(shipThree1, grid);
-        shipSetup(shipThree2, grid);
-        shipSetup(shipTwo, grid);
+        for (Ship ship : shipList) {
+            resetCoordinates(ship);
+            shipSetup(ship,grid);
+        }
+    }
+
+    private void resetCoordinates(Ship ship) {
+        ship.getShiptype().setCoordinates(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
     }
 
     private void shipSetup(Ship ship, String[][] grid) {
 
         boolean endCondition;
         do {
-            int state = 0;
             endCondition = true;
             System.out.println("Enter the setCoordinates of the " + ship.getShiptype() + " (" + ship.getShiptype().getLength() + ")");
 
@@ -55,7 +58,7 @@ public class ShipsSetter implements UserInput {
 
             shipSuccessfullySetVertical(ship, setCoordinates);// Ship successfully set;
 
-            new Show().showGrid(grid);
+            Show.showGrid(grid);
 
         }
 
@@ -73,23 +76,22 @@ public class ShipsSetter implements UserInput {
 
             shipSuccessfullySetHorizontal(ship, setCoordinates);// Ship successfully set;
 
-            new Show().showGrid(grid);
+            Show.showGrid(grid);
         }
         return endCondition;
     }
 
+    //TODO recaftor this method
     private boolean checkLengthSetErorr(Ship ship, int row1, int row2, int column1, int column2) {
         boolean endCondition = false;
         int[] lastCoordinateTab = ship.getShiptype().getCoordinates();
         int tablengt = lastCoordinateTab.length - 2;
         int lastCoordinate = lastCoordinateTab[tablengt];
 
-
         for (int i = 0; i <= ShipType.longestShip; i++) {
             if ((!(row1 != row2 & column2 != column1 + i) & ship.getShiptype().getLength() == i & lastCoordinate != 1) | (!(row2 + i != row1 & column1 != column2) & ship.getShiptype().getLength() == i & lastCoordinate != 1)) {
                 System.out.println("Error! Wrong length of the " + ship.getShiptype() + "! Try again:");
                 endCondition = true;
-
             }
         }
         return endCondition;
@@ -151,6 +153,6 @@ public class ShipsSetter implements UserInput {
         inputString[3] = sc.nextLine().toUpperCase(Locale.ROOT);
 
         return inputString;
-
     }
+
 }

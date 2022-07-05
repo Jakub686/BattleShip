@@ -1,8 +1,8 @@
 package org.example.model;
 
-public class Grid implements IGrid {
+public class GridFog implements IGrid{
 
-   public static int margin = 6; // margin prevents index out of bounds exception
+    public static int margin = 6; // margin prevents index out of bounds exception
 
     @Override
     public String[][] getGrid(int rows, int columns) {
@@ -26,5 +26,4 @@ public class Grid implements IGrid {
         }
         return grid;
     }
-
 }

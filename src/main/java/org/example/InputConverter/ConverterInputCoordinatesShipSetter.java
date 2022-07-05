@@ -1,29 +1,27 @@
-package org.example;
-
-import java.util.Locale;
-import java.util.Scanner;
+package org.example.InputConverter;
 
 /**
  * Converts input, example A3 into [1][3]. There are many types of input length, examples: A10, A6D6, A10A7, A10D10
  */
-public class ConverterUserInputIntoCartesianCoordinates {
-    public int[] inputConverterForShipSetting(String[] inputString) {
+public class ConverterInputCoordinatesShipSetter implements IConverterInputCoordinates {
 
-        int[] coordinatesInt;
+    @Override
+    public int[] inputConverterForShipSetting(String[] inputString) {
 
         //sort input ex. C5C8 into C5C8, first coordinates always have to be smaller then second
         inputString = sortInput(inputString);
 
-        coordinatesInt = converter(inputString);
+        int[] coordinatesInt = converter(inputString);
 
         return coordinatesInt;
     }
 
-    private int[] converter(String[] inputString) {
+    @Override
+    public int[] converter(String[] inputString) {
         //Converts user String input ex A4 into cartesian coordinates A4 -> X=1 Y=4
 
         int[] coordinatesInt = new int[4];;
-        coordinatesInt[0]=inputString[0].charAt(0)-64; //if A will be 1
+        coordinatesInt[0]=inputString[0].charAt(0)-64; //if A, will be 1
         coordinatesInt[2]=inputString[2].charAt(0)-64;
 
         coordinatesInt[1]=Integer.parseInt(inputString[1]);

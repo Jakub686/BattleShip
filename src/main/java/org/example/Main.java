@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.model.Grid;
+import org.example.model.GridFog;
 import org.example.view.Show;
 
 import java.util.ArrayList;
@@ -26,10 +27,10 @@ public class Main {
         Ship shipTwoP1 = new Ship(ShipType.DESTROYER);
 
         shipListPlayer1.add(shipFiveP1);
-        shipListPlayer1.add(shipFourP1);
-        shipListPlayer1.add(shipThree1P1);
-        shipListPlayer1.add(shipThree2P1);
-        shipListPlayer1.add(shipTwoP1);
+//        shipListPlayer1.add(shipFourP1);
+//        shipListPlayer1.add(shipThree1P1);
+//        shipListPlayer1.add(shipThree2P1);
+//        shipListPlayer1.add(shipTwoP1);
 
         //Player 2 ships
         List<Ship> shipListPlayer2 = new ArrayList<>();
@@ -41,14 +42,16 @@ public class Main {
         Ship shipTwoP2 = new Ship(ShipType.DESTROYER);
 
         shipListPlayer2.add(shipFiveP2);
-        shipListPlayer2.add(shipFourP2);
-        shipListPlayer2.add(shipThree1P2);
-        shipListPlayer2.add(shipThree2P2);
-        shipListPlayer2.add(shipTwoP2);
+//        shipListPlayer2.add(shipFourP2);
+//        shipListPlayer2.add(shipThree1P2);
+//        shipListPlayer2.add(shipThree2P2);
+//        shipListPlayer2.add(shipTwoP2);
 
         //Grid
         String[][] grid1 = new Grid().getGrid(rows +1, columns +1);
         String[][] grid2 = new Grid().getGrid(rows +1, columns +1);
+        String[][] gridFog1 = new GridFog().getGrid(rows +1, columns +1);
+        String[][] gridFog2 = new GridFog().getGrid(rows +1, columns +1);
 
         //Setting ship for player 1
         System.out.println("Player 1, place your ships on the game field");
@@ -67,6 +70,6 @@ public class Main {
         System.out.println("Press Enter and pass the move to another player");
         String blankString = sc.nextLine();
 
-        new Shot().shot(grid1, grid2,shipListPlayer1,shipListPlayer2);
+        new Shot().shot(grid1, grid2, gridFog1, gridFog2,shipListPlayer1,shipListPlayer2);
     }
 }

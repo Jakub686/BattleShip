@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.InputConverter.ConverterInputCoordinatesShipSetter;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -11,7 +12,7 @@ public class SortInputTest {
 
         String[] inputString ={"A","3","A","1"}; //input
         String[] outPutString ={"A","1","A","3"}; //expected
-        assertArrayEquals(outPutString, new ConverterUserInputIntoCartesianCoordinates().sortInput(inputString));
+        assertArrayEquals(outPutString, new ConverterInputCoordinatesShipSetter().sortInput(inputString));
 
         inputString[0] ="B";
         inputString[1] ="3";
@@ -21,6 +22,6 @@ public class SortInputTest {
         outPutString[1] ="3"; //expected
         outPutString[2] ="B"; //expected
         outPutString[3] ="3"; //expected
-        assertArrayEquals(outPutString, new ConverterUserInputIntoCartesianCoordinates().sortInput(inputString));
+        assertArrayEquals(outPutString, new ConverterInputCoordinatesShipSetter().sortInput(inputString));
     }
 }

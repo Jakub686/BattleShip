@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.InputConverter.ConverterInputCoordinatesShipSetter;
 import org.example.view.Show;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class ShipsSetter implements UserInput {
             endCondition = true;
             System.out.println("Enter the setCoordinates of the " + ship.getShiptype() + " (" + ship.getShiptype().getLength() + ")");
 
-            int[] setCoordinates = new ConverterUserInputIntoCartesianCoordinates().inputConverterForShipSetting(userInput());
+            int[] setCoordinates = new ConverterInputCoordinatesShipSetter().inputConverterForShipSetting(userInput());
             int row1 = setCoordinates[0];
             int row2 = setCoordinates[2];
             int column1 = setCoordinates[1];
@@ -59,7 +60,6 @@ public class ShipsSetter implements UserInput {
             shipSuccessfullySetVertical(ship, setCoordinates);// Ship successfully set;
 
             Show.showGrid(grid);
-
         }
 
         return endCondition;
@@ -85,12 +85,11 @@ public class ShipsSetter implements UserInput {
     //TODO recaftor this method
     private boolean checkLengthSetErorr(Ship ship, int row1, int row2, int column1, int column2) {
         boolean endCondition = false;
-        int[] lastCoordinateTab = ship.getShiptype().getCoordinates();
-        int tablengt = lastCoordinateTab.length - 2;
-        int lastCoordinate = lastCoordinateTab[tablengt];
+
+        int ifShipSet = ship.getShiptype().getCoordinate(ship.getShiptype().getCoordinates().length - 2);
 
         for (int i = 0; i <= ShipType.longestShip; i++) {
-            if ((!(row1 != row2 & column2 != column1 + i) & ship.getShiptype().getLength() == i & lastCoordinate != 1) | (!(row2 + i != row1 & column1 != column2) & ship.getShiptype().getLength() == i & lastCoordinate != 1)) {
+            if ((!(row1 != row2 & column2 != column1 + i) & ship.getShiptype().getLength() == i & ifShipSet != 1) | (!(row2 + i != row1 & column1 != column2) & ship.getShiptype().getLength() == i & ifShipSet != 1)) {
                 System.out.println("Error! Wrong length of the " + ship.getShiptype() + "! Try again:");
                 endCondition = true;
             }
@@ -102,10 +101,10 @@ public class ShipsSetter implements UserInput {
 
         //TODO how to get Ship type? AIRCRAFT_CARRIER. for right now is hardcoded
         if (ship.getShiptype().getLength() == 5) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1] + 1, setCoordinates[0], setCoordinates[1] + 2, setCoordinates[0], setCoordinates[1] + 3, setCoordinates[2], setCoordinates[3], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0]+1, setCoordinates[1], setCoordinates[0]+2, setCoordinates[1], setCoordinates[0]+3, setCoordinates[1], setCoordinates[2], setCoordinates[0], 1, 0});
         }
         if (ship.getShiptype().getLength() == 4) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1] + 1, setCoordinates[0], setCoordinates[1] + 2, setCoordinates[2], setCoordinates[3], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0]+1, setCoordinates[1], setCoordinates[0]+2, setCoordinates[1], setCoordinates[0]+3, setCoordinates[1], 1, 0});
         }
         if (ship.getShiptype().getLength() == 3) {
             ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1] + 1, setCoordinates[2], setCoordinates[3], 1, 0});
@@ -120,20 +119,19 @@ public class ShipsSetter implements UserInput {
 
         //TODO how to get Ship type? ex. AIRCRAFT_CARRIER. for right now is hardcoded
         if (ship.getShiptype().getLength() == 5) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0] + 1, setCoordinates[1], setCoordinates[0] + 2, setCoordinates[1], setCoordinates[0] + 3, setCoordinates[1], setCoordinates[2], setCoordinates[3], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1]+1, setCoordinates[0], setCoordinates[1]+2, setCoordinates[0], setCoordinates[1]+3, setCoordinates[0], setCoordinates[3], 1, 0});
         }
         if (ship.getShiptype().getLength() == 4) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0] + 1, setCoordinates[1], setCoordinates[0] + 2, setCoordinates[1], setCoordinates[2], setCoordinates[3], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1]+1, setCoordinates[0], setCoordinates[1]+2, setCoordinates[0], setCoordinates[3], 1, 0});
         }
         if (ship.getShiptype().getLength() == 3) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0] + 1, setCoordinates[1], setCoordinates[2], setCoordinates[3], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1]+1, setCoordinates[0], setCoordinates[3], 1, 0});
         }
         if (ship.getShiptype().getLength() == 2) {
             ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[2], setCoordinates[3], 1, 0});
         }
 
     }
-
 
     @Override
     public String[] userInput() {

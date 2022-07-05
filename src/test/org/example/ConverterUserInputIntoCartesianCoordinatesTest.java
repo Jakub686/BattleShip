@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.InputConverter.ConverterInputCoordinatesShipSetter;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -12,7 +13,7 @@ public class ConverterUserInputIntoCartesianCoordinatesTest {
 
         String[] inputString ={"C","2","A","2"};
         int[] coordinates = {1,2,3,2}; //expected
-        assertArrayEquals(coordinates, new ConverterUserInputIntoCartesianCoordinates().inputConverterForShipSetting(inputString));
+        assertArrayEquals(coordinates, new ConverterInputCoordinatesShipSetter().inputConverterForShipSetting(inputString));
 
         inputString[0] ="A";//input
         inputString[1] ="6";
@@ -22,7 +23,7 @@ public class ConverterUserInputIntoCartesianCoordinatesTest {
         coordinates[1]=1;
         coordinates[2]=1;
         coordinates[3]=6;
-        assertArrayEquals(coordinates, new ConverterUserInputIntoCartesianCoordinates().inputConverterForShipSetting(inputString));
+        assertArrayEquals(coordinates, new ConverterInputCoordinatesShipSetter().inputConverterForShipSetting(inputString));
 
     }
 

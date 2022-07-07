@@ -16,8 +16,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-
-
         //Player 1 ships
         ArrayList<Ship> shipListPlayer1 = new ArrayList<>();
 

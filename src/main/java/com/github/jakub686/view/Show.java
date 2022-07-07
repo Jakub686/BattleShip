@@ -1,6 +1,6 @@
-package org.example.view;
+package com.github.jakub686.view;
 
-import org.example.model.Grid;
+import com.github.jakub686.model.Grid;
 
 public class Show {
 
@@ -13,5 +13,6 @@ public class Show {
         }
         System.out.println();
     }
+
 
 }

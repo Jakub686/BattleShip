@@ -1,4 +1,4 @@
-package org.example.InputConverter;
+package com.github.jakub686.InputConverter;
 
 public class ConverterInputCoordinatesShot implements IConverterInputCoordinates {
     @Override

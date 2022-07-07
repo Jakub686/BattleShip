@@ -1,4 +1,4 @@
-package org.example.InputConverter;
+package com.github.jakub686.InputConverter;
 
 /**
  * Converts input, example A3 into [1][3]. There are many types of input length, examples: A10, A6D6, A10A7, A10D10

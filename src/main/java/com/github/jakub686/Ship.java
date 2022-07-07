@@ -1,4 +1,4 @@
-package org.example;
+package com.github.jakub686;
 
 public class Ship {
 

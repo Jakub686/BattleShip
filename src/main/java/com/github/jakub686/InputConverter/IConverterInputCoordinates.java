@@ -1,4 +1,4 @@
-package org.example.InputConverter;
+package com.github.jakub686.InputConverter;
 
 public interface IConverterInputCoordinates {
 

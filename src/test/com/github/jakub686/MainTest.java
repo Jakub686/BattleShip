@@ -1,8 +1,8 @@
-package org.example;
+package com.github.jakub686;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+
 
 public class MainTest {
 

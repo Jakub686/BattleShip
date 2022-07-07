@@ -1,9 +1,4 @@
-package org.example;
-
-import org.example.model.Grid;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.github.jakub686;
 
 public class ShotTest {
 

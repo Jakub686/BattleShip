@@ -1,7 +1,7 @@
-package org.example;
+package com.github.jakub686;
 
-import org.example.InputConverter.ConverterInputCoordinatesShipSetter;
-import org.example.view.Show;
+import com.github.jakub686.InputConverter.ConverterInputCoordinatesShipSetter;
+import com.github.jakub686.view.Show;
 
 import java.util.List;
 import java.util.Locale;
@@ -11,13 +11,8 @@ public class ShipsSetter implements UserInput {
     public void shipsSetter(String[][] grid, List<Ship> shipList) {
 
         for (Ship ship : shipList) {
-            resetCoordinates(ship);
-            shipSetup(ship,grid);
+            shipSetup(ship, grid);
         }
-    }
-
-    private void resetCoordinates(Ship ship) {
-        ship.getShiptype().setCoordinates(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
     }
 
     private void shipSetup(Ship ship, String[][] grid) {
@@ -33,14 +28,12 @@ public class ShipsSetter implements UserInput {
             int column1 = setCoordinates[1];
             int column2 = setCoordinates[3];
 
-            //vertical ship set
-            endCondition = horizontalShipSet(ship, grid, endCondition, setCoordinates, row1, row2, column1, column2);
             //horizontal ship set
+            endCondition = horizontalShipSet(ship, grid, endCondition, setCoordinates, row1, row2, column1, column2);
+            //vertical ship set
             endCondition = verticalShipSet(ship, grid, endCondition, setCoordinates, row1, row2, column1, column2);
 
             // if ship not successfully set, then check for errors
-            int[] shipCoordinates = ship.getShiptype().getCoordinates();
-
             endCondition = checkLengthSetErorr(ship, row1, row2, column1, column2);
 
         } while (endCondition);
@@ -61,7 +54,6 @@ public class ShipsSetter implements UserInput {
 
             Show.showGrid(grid);
         }
-
         return endCondition;
     }
 
@@ -77,12 +69,10 @@ public class ShipsSetter implements UserInput {
             shipSuccessfullySetHorizontal(ship, setCoordinates);// Ship successfully set;
 
             Show.showGrid(grid);
-
         }
         return endCondition;
     }
 
-    //TODO recaftor this method
     private boolean checkLengthSetErorr(Ship ship, int row1, int row2, int column1, int column2) {
         boolean endCondition = false;
 
@@ -99,38 +89,34 @@ public class ShipsSetter implements UserInput {
 
     public void shipSuccessfullySetVertical(Ship ship, int[] setCoordinates) {
 
-        //TODO how to get Ship type? AIRCRAFT_CARRIER. for right now is hardcoded
         if (ship.getShiptype().getLength() == 5) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0]+1, setCoordinates[1], setCoordinates[0]+2, setCoordinates[1], setCoordinates[0]+3, setCoordinates[1], setCoordinates[2], setCoordinates[0], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0] + 1, setCoordinates[1], setCoordinates[0] + 2, setCoordinates[1], setCoordinates[0] + 3, setCoordinates[1], setCoordinates[2], setCoordinates[3], 1, 0});
         }
         if (ship.getShiptype().getLength() == 4) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0]+1, setCoordinates[1], setCoordinates[0]+2, setCoordinates[1], setCoordinates[0]+3, setCoordinates[1], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0] + 1, setCoordinates[1], setCoordinates[0] + 2, setCoordinates[1], setCoordinates[2], setCoordinates[3], 1, 0});
         }
         if (ship.getShiptype().getLength() == 3) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1] + 1, setCoordinates[2], setCoordinates[3], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0] + 1, setCoordinates[1], setCoordinates[2], setCoordinates[3], 1, 0});
         }
         if (ship.getShiptype().getLength() == 2) {
             ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[2], setCoordinates[3], 1, 0});
         }
-
     }
 
     public void shipSuccessfullySetHorizontal(Ship ship, int[] setCoordinates) {
 
-        //TODO how to get Ship type? ex. AIRCRAFT_CARRIER. for right now is hardcoded
         if (ship.getShiptype().getLength() == 5) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1]+1, setCoordinates[0], setCoordinates[1]+2, setCoordinates[0], setCoordinates[1]+3, setCoordinates[0], setCoordinates[3], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1] + 1, setCoordinates[0], setCoordinates[1] + 2, setCoordinates[0], setCoordinates[1] + 3, setCoordinates[0], setCoordinates[3], 1, 0});
         }
         if (ship.getShiptype().getLength() == 4) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1]+1, setCoordinates[0], setCoordinates[1]+2, setCoordinates[0], setCoordinates[3], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1] + 1, setCoordinates[0], setCoordinates[1] + 2, setCoordinates[0], setCoordinates[3], 1, 0});
         }
         if (ship.getShiptype().getLength() == 3) {
-            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1]+1, setCoordinates[0], setCoordinates[3], 1, 0});
+            ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[0], setCoordinates[1] + 1, setCoordinates[0], setCoordinates[3], 1, 0});
         }
         if (ship.getShiptype().getLength() == 2) {
             ship.getShiptype().setCoordinates(new int[]{setCoordinates[0], setCoordinates[1], setCoordinates[2], setCoordinates[3], 1, 0});
         }
-
     }
 
     @Override
@@ -153,5 +139,4 @@ public class ShipsSetter implements UserInput {
 
         return inputString;
     }
-
 }

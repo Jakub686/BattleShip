@@ -12,7 +12,7 @@ public class ConverterTest {
 
         String[] inputString ={"A","3","A","1"};
         String[] outPutString ={"A","1","A","3"};
-        assertArrayEquals(outPutString,new ConverterInputCoordinatesShipSetter().sortInput(inputString));
+        assertArrayEquals(outPutString, new ConverterInputCoordinatesShipSetter().sortInput(inputString));
 
         inputString[0] ="B";
         inputString[1] ="3";

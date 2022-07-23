@@ -9,7 +9,7 @@ public class ConverterUserInputIntoCartesianCoordinatesTest {
 
     @Test
     public void testConverterUserInputIntoCartesianCoordinates() {
-        //input in String result in array grid coordinates X,Y
+        //input in String, result in array grid coordinates X,Y
 
         String[] inputString ={"C","2","A","2"};
         int[] coordinates = {1,2,3,2}; //expected

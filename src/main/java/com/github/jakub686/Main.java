@@ -50,17 +50,17 @@ public class Main {
     private static ArrayList<Ship> createPlayer() {
         ArrayList<Ship> shipListPlayer = new ArrayList<>();
 
-        Ship shipFiveP2 = new Ship(ShipType.AIRCRAFT_CARRIER);
-        Ship shipFourP2 = new Ship(ShipType.BATTLESHIP);
-        Ship shipThree1P2 = new Ship(ShipType.SUBMARINE);
-        Ship shipThree2P2 = new Ship(ShipType.CRUISER);
-        Ship shipTwoP2 = new Ship(ShipType.DESTROYER);
+        Ship shipFive = new Ship(ShipType.AIRCRAFT_CARRIER);
+        Ship shipFour = new Ship(ShipType.BATTLESHIP);
+        Ship shipThree1 = new Ship(ShipType.SUBMARINE);
+        Ship shipThree2 = new Ship(ShipType.CRUISER);
+        Ship shipTwo = new Ship(ShipType.DESTROYER);
 
-        shipListPlayer.add(shipFiveP2);
-        shipListPlayer.add(shipFourP2);
-        shipListPlayer.add(shipThree1P2);
-        shipListPlayer.add(shipThree2P2);
-        shipListPlayer.add(shipTwoP2);
+        shipListPlayer.add(shipFive);
+        shipListPlayer.add(shipFour);
+        shipListPlayer.add(shipThree1);
+        shipListPlayer.add(shipThree2);
+        shipListPlayer.add(shipTwo);
         return shipListPlayer;
     }
 

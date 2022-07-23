@@ -5,7 +5,6 @@ import com.github.jakub686.model.GridFog;
 import com.github.jakub686.view.Show;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -17,34 +16,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         //Player 1 ships
-        ArrayList<Ship> shipListPlayer1 = new ArrayList<>();
-
-        Ship shipFiveP1 = new Ship(ShipType.AIRCRAFT_CARRIER);
-        Ship shipFourP1 = new Ship(ShipType.BATTLESHIP);
-        Ship shipThree1P1 = new Ship(ShipType.SUBMARINE);
-        Ship shipThree2P1 = new Ship(ShipType.CRUISER);
-        Ship shipTwoP1 = new Ship(ShipType.DESTROYER);
-
-        shipListPlayer1.add(shipFiveP1);
-        shipListPlayer1.add(shipFourP1);
-        shipListPlayer1.add(shipThree1P1);
-        shipListPlayer1.add(shipThree2P1);
-        shipListPlayer1.add(shipTwoP1);
+        ArrayList<Ship> shipListPlayer1 = createPlayer();
 
         //Player 2 ships
-        ArrayList<Ship> shipListPlayer2 = new ArrayList<>();
-
-        Ship shipFiveP2 = new Ship(ShipType.AIRCRAFT_CARRIER);
-        Ship shipFourP2 = new Ship(ShipType.BATTLESHIP);
-        Ship shipThree1P2 = new Ship(ShipType.SUBMARINE);
-        Ship shipThree2P2 = new Ship(ShipType.CRUISER);
-        Ship shipTwoP2 = new Ship(ShipType.DESTROYER);
-
-        shipListPlayer2.add(shipFiveP2);
-        shipListPlayer2.add(shipFourP2);
-        shipListPlayer2.add(shipThree1P2);
-        shipListPlayer2.add(shipThree2P2);
-        shipListPlayer2.add(shipTwoP2);
+        ArrayList<Ship> shipListPlayer2 = createPlayer();
 
         //Grid
         String[][] grid1 = new Grid().getGrid(rows + 1, columns + 1);
@@ -70,6 +45,23 @@ public class Main {
         String blankString = sc.nextLine();
 
         new Shot().shot(grid1, grid2, gridFog1, gridFog2, shipListPlayer1, shipListPlayer2);
+    }
+
+    private static ArrayList<Ship> createPlayer() {
+        ArrayList<Ship> shipListPlayer = new ArrayList<>();
+
+        Ship shipFiveP2 = new Ship(ShipType.AIRCRAFT_CARRIER);
+        Ship shipFourP2 = new Ship(ShipType.BATTLESHIP);
+        Ship shipThree1P2 = new Ship(ShipType.SUBMARINE);
+        Ship shipThree2P2 = new Ship(ShipType.CRUISER);
+        Ship shipTwoP2 = new Ship(ShipType.DESTROYER);
+
+        shipListPlayer.add(shipFiveP2);
+        shipListPlayer.add(shipFourP2);
+        shipListPlayer.add(shipThree1P2);
+        shipListPlayer.add(shipThree2P2);
+        shipListPlayer.add(shipTwoP2);
+        return shipListPlayer;
     }
 
 }
